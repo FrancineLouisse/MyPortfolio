@@ -1,0 +1,48 @@
+.project-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.project-modal {
+  background: #f09080;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 15px;
+  padding: 20px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  border: none;
+  background: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.modal-image {
+  border-radius: 12px;
+}
+
+.modal-title {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.modal-description {
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+.modal-title, .modal-description{
+    color: #000000;
+}

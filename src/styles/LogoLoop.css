@@ -1,0 +1,82 @@
+/* Base container */
+.logoloop {
+  position: relative;
+  overflow: hidden;
+  /* Controls you can override via props */
+  --logoloop-gap: 32px;
+  --logoloop-logoHeight: 28px;
+  --logoloop-fadeColor: transparent;
+}
+
+/* The moving track */
+.logoloop__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* One “copy” of the row */
+.logoloop__list {
+  display: flex;
+  align-items: center;
+  gap: var(--logoloop-gap);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  /* NEW: space between one list and the next copy */
+  margin-right: var(--logoloop-gap);
+}
+
+/* Each item */
+.logoloop__item {
+  list-style: none;          /* remove bullets (just in case) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Kill any marker styles from global CSS */
+.logoloop__item::marker { content: ""; }
+
+/* Images (both direct <img> and those wrapped in .logoloop__node) */
+.logoloop__item img,
+.logoloop__node img {
+  height: var(--logoloop-logoHeight);
+  width: auto;
+  max-width: 200px;          /* safety so huge images don’t blow up the row */
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Optional link style (no underline) */
+.logoloop__link { text-decoration: none; }
+
+/* Optional: subtle scale on hover when `scaleOnHover` is true */
+.logoloop--scale-hover .logoloop__item img {
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+.logoloop--scale-hover .logoloop__item:hover img {
+  transform: scale(1.06);
+  opacity: 1;
+}
+
+/* Optional: fade edges when `fadeOut` is true */
+.logoloop--fade::before,
+.logoloop--fade::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 64px;
+  pointer-events: none;
+}
+.logoloop--fade::before {
+  left: 0;
+  background: linear-gradient(to right, var(--logoloop-fadeColor, #000) 0%, transparent 100%);
+}
+.logoloop--fade::after {
+  right: 0;
+  background: linear-gradient(to left, var(--logoloop-fadeColor, #000) 0%, transparent 100%);
+}

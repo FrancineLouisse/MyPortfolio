@@ -1,0 +1,177 @@
+:root {
+  --contact-accent: #f09080;  /* your pink */
+  --contact-bg: #0a0a0a;      /* page background (black-ish) */
+  --field-bg: #d9d9d9;        /* light gray fields as in the screenshot */
+  --field-radius: 8px;
+  --field-height: 42px;
+}
+
+/* Layout */
+.contact {
+  padding: 60px 0 40px;
+  position: relative;
+  background: transparent; /* section sits on your page bg/particles */
+}
+
+
+.contact__grid {
+  display: grid;
+  gap: 28px;
+  align-items: start;
+  grid-template-columns: 1fr;
+}
+
+/* 2 columns on md+ */
+@media (min-width: 900px) {
+  .contact__grid {
+    grid-template-columns: 1.1fr 1fr;
+  }
+}
+
+/* Left copy */
+.contact__title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 6px;
+  letter-spacing: 0.5px;
+}
+
+.contact__title span {
+  color: var(--contact-accent);
+}
+
+.contact__lead {
+  font-weight: 700;
+  color: #dcdcdc;
+  margin: 0 0 8px;
+}
+
+.contact__text {
+  color: #bcbcbc;
+  line-height: 1.5;
+  max-width: 42ch;
+}
+
+/* Right form */
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact__form input,
+.contact__form textarea {
+  background: var(--field-bg);
+  border: none;
+  border-radius: var(--field-radius);
+  padding: 12px 14px;
+  color: #111;
+  font-size: 14px;
+  outline: none;
+  box-shadow: 0 0 0 2px #000; /* thin dark edge like your UI */
+}
+
+.contact__form input {
+  height: var(--field-height);
+}
+
+.contact__form textarea {
+  resize: vertical; /* allow slight resize if users want */
+  min-height: 160px;
+}
+
+.contact__form input::placeholder,
+.contact__form textarea::placeholder {
+  color: #6a6a6a;
+}
+
+/* Focus state */
+.contact__form input:focus,
+.contact__form textarea:focus {
+  box-shadow: 0 0 0 2px #000, 0 0 0 4px rgba(240, 144, 128, 0.55);
+}
+
+/* Submit */
+.contact__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centers under the button */
+  gap: 10px;             /* space between button and message */
+  margin-top: 10px;
+}
+
+
+/* 🔹 CTA Button Styling */
+.contact__btn {
+  margin-top: 1.8rem;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: black;
+  background-color: #f09080;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px #f0908066;
+  overflow: hidden;
+}
+
+/* 🔹 Hover Animation with Light/Glow Effect */
+.contact__btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  transform: skewX(-25deg);
+}
+
+.contact__btn:hover::before {
+  animation: lightMove 0.75s forwards;
+}
+
+@keyframes lightMove {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+.contact__btn:hover {
+  background-color: #f09080;
+  box-shadow: 0 0 25px #f09080cc;
+  transform: translateY(-3px);
+}
+/* Accessibility helpers */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 1px, 1px);
+  white-space: nowrap; border: 0;
+}
+
+.contact__flash {
+  font-size: 0.95rem;
+  line-height: 1.2;
+  min-height: 1.2em;     /* keeps layout steady even when empty */
+  text-align: center;
+}
+/* ContactSection.css */
+.contact__status { margin-top: 12px; font-size: 0.95rem; }
+.contact__status.ok { color: #16a34a; }
+.contact__status.err { color: #dc2626; }
+.contact__flash.ok { color: #16a34a; }    /* green */
+.contact__flash.err { color: #dc2626; }   /* red */
