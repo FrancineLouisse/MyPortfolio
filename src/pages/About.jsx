@@ -1,4 +1,4 @@
-import Particles from "./Particles";
+import Particles from "../components/Particles";
 import "../styles/AboutSection.css";
 // If you added the alias "@": 
 import LogoLoop from "@/components/LogoLoop";
