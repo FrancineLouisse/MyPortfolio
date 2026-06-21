@@ -1,15 +1,18 @@
 import "../styles/Footer.css";
+import logo from "../assets/Logo-black.png";
+
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="container footer__inner">
-        <p className="footer__owner">
-          © 2025 <span>Francine Louisse Miranda</span> | Web &amp; Mobile Developer
-        </p>
-
+        <img src={logo} width="60" alt="Logo"></img>
+        <h3 className="mt-0">
+          <strong>Francine Louisse Carcabuso Miranda</strong>
+        </h3>
+        <h4>SOFTWARE DEVELOPER</h4>
         <p className="footer__tagline">Built with passion and continuous learning.</p>
-
+   
         <nav className="footer__social" aria-label="Social links">
           <a href="https://www.facebook.com/francine.miranda2" target="_blank" rel="noreferrer noopener" aria-label="Facebook" className="social__link">
             {/* Facebook */}
@@ -39,6 +42,13 @@ const Footer = () => {
             </svg>
           </a>
         </nav>
+
+        <hr/>
+        
+         {/* <p className="footer__owner">
+          © 2025 <span>Francine Louisse Miranda</span>
+        </p> */}
+        <p>All Rights Resereved</p>
       </div>
     </footer>
   );
