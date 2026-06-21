@@ -45,10 +45,10 @@ const Footer = () => {
 
         <hr/>
         
-         <p className="footer__owner">
+         {/* <p className="footer__owner">
           © 2025 <span>Francine Louisse Miranda</span>
-        </p>
-        <p>All Rights Resereved.</p>
+        </p> */}
+        <p>All Rights Resereved</p>
       </div>
     </footer>
   );
