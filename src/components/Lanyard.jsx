@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import '@dimforge/rapier3d-compat';
 import { Canvas, extend, useFrame } from '@react-three/fiber';
 import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
@@ -28,6 +29,7 @@ export default function Lanyard({ position = [0, 0, 15], gravity = [0, -40, 0], 
         <Physics gravity={gravity} timeStep={1 / 60}>
           <Band />
         </Physics>
+
         <Environment blur={0.75}>
           <Lightformer
             intensity={2}
@@ -75,6 +77,8 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
     dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
   const { nodes, materials } = useGLTF(cardGLB);
+  console.log("nodes", nodes);
+console.log("materials", materials);
   const texture = useTexture(lanyard);
   const [curve] = useState(
     () =>

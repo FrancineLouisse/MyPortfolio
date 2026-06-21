@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/ProjectSection.css";
-import TiltedCard from "./TiltedCard.jsx";
-import ProjectModal from "./ProjectModal.jsx";
+import TiltedCard from "../components/TiltedCard.jsx";
+import ProjectModal from "../components/ProjectModal.jsx";
 
 // Project Images
 import SnakeCover from "../assets/Projects/SnakeNLetters/SnakeCover.png";
