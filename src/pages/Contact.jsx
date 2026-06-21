@@ -1,6 +1,7 @@
 // ContactSection.jsx
 import { useState } from "react";
 import "../styles/ContactSection.css";
+import Particles from "../components/Particles";
 
 const ContactSection = () => {
   const [status, setStatus] = useState({ loading: false, ok: null, msg: "" });
@@ -42,7 +43,21 @@ const ContactSection = () => {
     }
   }
 
+ 
   return (
+  <>
+      <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
+        <Particles
+        particleColors={['#f09080', '#ffffff']}
+        particleCount={700}
+        particleSpread={15}
+        speed={0.1}
+        particleBaseSize={130}
+        moveParticlesOnHover={true}
+        alphaParticles={false}
+        disableRotation={false}
+        />
+    </div>
     <section id="contact" className="contact">
       <div className="contact__grid container">
         <div className="contact__copy">
@@ -85,6 +100,8 @@ const ContactSection = () => {
         </form>
       </div>
     </section>
+  </>
+
   );
 };
 
