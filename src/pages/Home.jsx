@@ -30,18 +30,29 @@ const HeroSection = () => {
       {/* Hero Section */}
       <section className="hero-content">
         <div className="Header container">
+           <p className="badge"> <span>&bull; </span> OPEN FOR FREELANCE WORK</p>
+           <p className="exposition">Hi, I'm</p>
           <h1>
             FRANCINE LOUISSE <span>MIRANDA</span>
           </h1>
           <p className="role">Software Developer</p>
-          <p className="tagline">Simple code. Strong impact.</p>
+          <p className="tagline">I build softwares that solves real-world problems</p>
+          <p className="tagline">through innovative and impactful software solutions.</p>
+          <div className="cta-btn">
+            <button
+              className="collab"
+              onClick={() => navigate("/contact")}
+            >
+              Let&apos;s Collaborate
+            </button>
+            <button
+              className="work"
+              onClick={() => navigate("/projects")}
+            >
+              View My Work &rarr;
+            </button>
+          </div>
 
-          <button
-            className="cta-btn"
-            onClick={() => navigate("/contact")}
-          >
-            Let&apos;s Collaborate
-          </button>
         </div>
       </section>
 
