@@ -46,7 +46,7 @@ const ContactSection = () => {
  
   return (
   <>
-      <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
+      {/* <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
         <Particles
         particleColors={['#f09080', '#ffffff']}
         particleCount={700}
@@ -57,7 +57,7 @@ const ContactSection = () => {
         alphaParticles={false}
         disableRotation={false}
         />
-    </div>
+    </div> */}
     <section id="contact" className="contact">
       <div className="contact__grid container">
         <div className="contact__copy">

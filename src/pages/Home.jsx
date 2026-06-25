@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Particles from "../components/Particles";
+// import Particles from "../components/Particles";
 import Lanyard from "../components/Lanyard";
 import logo from "../assets/logo.png";
 import "../styles/HeroSection.css";
@@ -10,13 +10,14 @@ import expIcon from "../assets/Icons/codingexp-icon.png"
 import certIcon from "../assets/Icons/certificate-icon.png"
 import CountUp from "../components/CountUp"
 
+
 const HeroSection = () => {
   const navigate = useNavigate();
 
   return (
     <>
       {/* Background Particles */}
-      <div style={{ width: "100%", height: "100%", position: "absolute" }}>
+      {/* <div style={{ width: "100%", height: "100%", position: "absolute" }}>
         <Particles
           particleColors={["#f09080", "#ffffff"]}
           particleCount={700}
@@ -27,7 +28,7 @@ const HeroSection = () => {
           alphaParticles={false}
           disableRotation={false}
         />
-      </div>
+      </div> */}
 
     
 
