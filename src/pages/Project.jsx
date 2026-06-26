@@ -20,12 +20,10 @@ const projects = [
     description:
     "A responsive personal portfolio developed using React, Vite and Bootstrap showcasing projects, certifications, experience and achievements.",
     technologies:[
-        "React",
-        "Vite",
-        "Bootstrap",
-        "CSS"
+        "C++",
+
     ],
-    liveLink:"https://yourportfolio.com"
+    liveLink:"https://yourportfolio/XXXX.com"
 },
 
 {
@@ -38,10 +36,9 @@ const projects = [
     description:
     "A complete inventory management system capable of managing products, suppliers, sales and reports.",
     technologies:[
-        "PHP",
+        "Java",
         "MySQL",
-        "Bootstrap",
-        "JavaScript"
+
     ],
     liveLink:null
 },
@@ -57,9 +54,9 @@ const projects = [
     description:
     "POS system developed for ordering, cashiering and inventory tracking.",
     technologies:[
-        "React",
-        "Firebase",
-        "CSS"
+        "Java",
+        "MySQL",
+
     ],
     liveLink:null
 }
@@ -127,16 +124,22 @@ const [selectedProject,setSelectedProject]=useState(null);
 
               <div className="projectTech">
 
-                {project.technologies.map((tech) => (
+                {project.technologies
+                  .slice(0, 3)
+                  .map((tech) => (
+                    <span
+                      key={tech}
+                      className="techBadge"
+                    >
+                      {tech}
+                    </span>
+                  ))}
 
-                  <span
-                    key={tech}
-                    className="techBadge"
-                  >
-                    {tech}
+                {project.technologies.length > 3 && (
+                  <span className="techBadge moreBadge">
+                    +{project.technologies.length - 3}
                   </span>
-
-                ))}
+                )}
 
               </div>
 
