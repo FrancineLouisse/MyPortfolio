@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/ProjectSection.css";
 import TiltedCard from "../components/TiltedCard.jsx";
 import ProjectModal from "../components/ProjectModal.jsx";
@@ -142,6 +143,8 @@ const projects = [
 ];
 
 const [selectedProject,setSelectedProject]=useState(null);
+const navigate = useNavigate();
+
   return (
   <div className="container">
     <section id="projects" className="ProjectSection">
@@ -238,6 +241,24 @@ const [selectedProject,setSelectedProject]=useState(null);
         />
 
       )}
+
+      <div className="projectCTA">
+
+        <h2>Let's Build Something Meaningful Together</h2>
+
+        <p>
+            Have an idea or need a software solution?
+            I'm always excited to collaborate on projects that create real value.
+        </p>
+
+        <button
+            className="ctaContactBtn"
+            onClick={() => navigate("/contact")}
+        >
+            Let's Talk →
+        </button>
+
+    </div>
 
     </section>
   </div>
