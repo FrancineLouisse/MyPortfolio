@@ -1,45 +1,83 @@
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
 import logo from "../assets/logo.png";
 
 const Navbar = () => {
-  return (
-    <nav className="navbar custom-navbar">
-      <div className="container-fluid d-flex align-items-center justify-content-between">
 
-        <div className="d-flex align-items-center gap-2">
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+
+    <nav className="navbar custom-navbar">
+
+      <div className="container-fluid">
+
+        <div className="navbarTop">
+
           <img src={logo} width="60" alt="Logo" />
+
+          <button
+            className="menuBtn"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+
+            {menuOpen
+              ? <HiOutlineXMark />
+              : <HiOutlineBars3 />
+            }
+
+          </button>
+
         </div>
 
-        <ul className="nav nav-underline mb-0">
+        <ul className={`navMenu ${menuOpen ? "showMenu" : ""}`}>
 
-          <li className="nav-item mx-3">
-            <NavLink className="nav-link fw-semibold" to="/">
+          <li>
+            <NavLink
+              to="/"
+              onClick={() => setMenuOpen(false)}
+            >
               HOME
             </NavLink>
           </li>
 
-          <li className="nav-item mx-3">
-            <NavLink className="nav-link fw-semibold" to="/about">
+          <li>
+            <NavLink
+              
+              to="/about"
+              onClick={() => setMenuOpen(false)}
+            >
               ABOUT
             </NavLink>
           </li>
 
-          <li className="nav-item mx-3">
-            <NavLink className="nav-link fw-semibold" to="/projects">
+          <li>
+            <NavLink
+              to="/projects"
+              onClick={() => setMenuOpen(false)}
+            >
               PROJECTS
             </NavLink>
           </li>
 
-          <li className="nav-item mx-3">
-            <NavLink className="nav-link fw-semibold" to="/contact">
+          <li>
+            <NavLink
+              to="/contact"
+              onClick={() => setMenuOpen(false)}
+            >
               CONTACT
             </NavLink>
           </li>
 
         </ul>
+
       </div>
+
     </nav>
+
   );
+
 };
 
 export default Navbar;
