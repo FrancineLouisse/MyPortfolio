@@ -1,32 +1,17 @@
-.ProjectSection{
+/* .ProjectSection{
     background-color: #f09080;
-}
+} */
 
-
-.blackHeader{
+.pinkHeader{
   position: relative;
-  margin: 0 auto 2.25rem;
+  margin: 4rem auto 2.25rem;
   text-align: center;
   font-weight: 800;                     /* strong but not chunky */
   font-size: clamp(2rem, 5vw, 3rem);    /* scales gracefully */
   line-height: 1.05;
   letter-spacing: .04em;                /* subtle spacing = luxe */
-  color: #000000;                       /* deep ink against salmon */
+  color: #f09080;                       /* deep ink against salmon */
   text-shadow: 0 1px 0 rgba(255,255,255,.35); /* slight lift on warm bg */
 }
 
-.blackHeader::after{
-  content: "";
-  display: block;
-  width: 72px;
-  height: 2px;
-  margin: 12px auto 0;
-  border-radius: 999px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    currentColor,
-    transparent
-  );
-  opacity: .45;                          
-}
+
