@@ -1,70 +1,92 @@
-import React from "react";
+import { useEffect } from "react";
+import { HiOutlineXMark, HiOutlineArrowTopRightOnSquare } from "react-icons/hi2";
 import "../styles/ProjectModal.css";
 
-const ProjectModal = ({ isOpen, onClose, title, description, images }) => {
-  if (!isOpen) return null;
+const ProjectModal = ({ project, onClose }) => {
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
 
-  // Ensure images always exists and has at least 1 item
-  const safeImages = images && images.length > 0 ? images : [];
+    document.addEventListener("keydown", handleKeyDown);
+
+    // Prevent page scroll while modal is open
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "auto";
+    };
+  }, [onClose]);
+
+  if (!project) return null;
 
   return (
-    <div className="project-modal-backdrop" onClick={onClose}>
-      <div className="project-modal" onClick={(e) => e.stopPropagation()}>
-        
-        {/* Close Button */}
-        <button className="modal-close" onClick={onClose}>✕</button>
+    <div className="modalBackdrop" onClick={onClose}>
+      <div
+        className="projectModal"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button className="closeModalBtn" onClick={onClose}>
+          <HiOutlineXMark />
+        </button>
 
-        {/* IMAGE SECTION */}
-        {safeImages.length === 1 ? (
-          // ⚠ Only 1 image → Show static single image
-          <div className="single-image-wrapper">
-            <img src={safeImages[0]} className="modal-image" alt="" />
+        <div className="modalPreview">
+
+          {project.previewType === "image" ? (
+            <img
+              src={project.preview}
+              alt={project.name}
+            />
+          ) : (
+            <video
+              src={project.preview}
+              controls
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+          )}
+
+        </div>
+
+        <div className="modalContent">
+
+          <h2>{project.name}</h2>
+
+          <p className="modalDescription">
+            {project.description}
+          </p>
+
+          <div className="modalTech">
+
+            {project.technologies.map((tech) => (
+              <span
+                key={tech}
+                className="techBadge"
+              >
+                {tech}
+              </span>
+            ))}
+
           </div>
-        ) : (
-          // 🎠 Multiple images → Show carousel
-          <div
-            id="projectCarousel"
-            className="carousel slide"
-            data-bs-ride="carousel"
-          >
-            <div className="carousel-inner">
-              {safeImages.map((img, index) => (
-                <div
-                  key={index}
-                  className={`carousel-item ${index === 0 ? "active" : ""}`}
-                >
-                  <img src={img} className="d-block w-100 modal-image" alt="" />
-                </div>
-              ))}
-            </div>
 
-            {/* Carousel Arrows */}
-            <button
-              className="carousel-control-prev"
-              type="button"
-              data-bs-target="#projectCarousel"
-              data-bs-slide="prev"
+          {project.liveLink && (
+            <a
+              href={project.liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="liveProjectBtn"
             >
-              <span className="carousel-control-prev-icon"></span>
-            </button>
+              View Live Project
+              <HiOutlineArrowTopRightOnSquare />
+            </a>
+          )}
 
-            <button
-              className="carousel-control-next"
-              type="button"
-              data-bs-target="#projectCarousel"
-              data-bs-slide="next"
-            >
-              <span className="carousel-control-next-icon"></span>
-            </button>
-          </div>
-        )}
-
-        {/* TITLE */}
-        <h2 className="modal-title">{title}</h2>
-
-        {/* DESCRIPTION */}
-        <p className="modal-description">{description}</p>
-
+        </div>
       </div>
     </div>
   );
