@@ -35,7 +35,7 @@ const Footer = () => {
             </svg>
           </a>
 
-          <a href="https://github.com/FrancineLou" target="_blank" rel="noreferrer noopener" aria-label="GitHub" className="social__link">
+          <a href="https://github.com/FrancineLouisse" target="_blank" rel="noreferrer noopener" aria-label="GitHub" className="social__link">
             {/* GitHub */}
             <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
               <path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.11.8-.25.8-.56v-2c-3.26.71-3.95-1.4-3.95-1.4A3.11 3.11 0 0 0 3.5 16.9c-1.06-.73.08-.72.08-.72a2.47 2.47 0 0 1 1.8 1.21 2.5 2.5 0 0 0 3.42 1 2.49 2.49 0 0 1 .75-1.56c-2.6-.3-5.33-1.3-5.33-5.79a4.53 4.53 0 0 1 1.21-3.15 4.21 4.21 0 0 1 .12-3.11s.98-.31 3.2 1.2a10.98 10.98 0 0 1 5.82 0c2.22-1.51 3.2-1.2 3.2-1.2.44 1.1.36 2.36.12 3.11A4.53 4.53 0 0 1 20 10.24c0 4.51-2.74 5.49-5.35 5.78a2.77 2.77 0 0 1 .8 2.14v3.17c0 .31.22.68.81.56A11.5 11.5 0 0 0 12 .5Z"/>
