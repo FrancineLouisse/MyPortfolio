@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 0.5vh;
   text-align: center;
 }
 
@@ -60,4 +60,13 @@
 .social__link:hover {
   background: rgba(0,0,0,0.14);
   transform: translateY(-2px);
+}
+
+h3, h4, p {
+  font-size:medium;
+  margin: 0;
+  padding: 0;
+}
+hr {
+  width: 100%;
 }

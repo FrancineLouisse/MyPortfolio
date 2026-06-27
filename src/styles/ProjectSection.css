@@ -1,32 +1,261 @@
+/* ===========================
+   PROJECT SECTION
+=========================== */
+
 .ProjectSection{
-    background-color: #f09080;
+    padding-bottom:80px;
 }
 
-
-.blackHeader{
-  position: relative;
-  margin: 0 auto 2.25rem;
-  text-align: center;
-  font-weight: 800;                     /* strong but not chunky */
-  font-size: clamp(2rem, 5vw, 3rem);    /* scales gracefully */
-  line-height: 1.05;
-  letter-spacing: .04em;                /* subtle spacing = luxe */
-  color: #000000;                       /* deep ink against salmon */
-  text-shadow: 0 1px 0 rgba(255,255,255,.35); /* slight lift on warm bg */
+.pinkHeader{
+    position:relative;
+    margin:4rem auto 2.25rem;
+    text-align:center;
+    font-weight:800;
+    font-size:clamp(2rem,5vw,3rem);
+    line-height:1.05;
+    letter-spacing:.04em;
+    color:#f09080;
+    text-shadow:0 1px 0 rgba(255,255,255,.35);
 }
 
-.blackHeader::after{
-  content: "";
-  display: block;
-  width: 72px;
-  height: 2px;
-  margin: 12px auto 0;
-  border-radius: 999px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    currentColor,
-    transparent
-  );
-  opacity: .45;                          
+.pinkHeader::after{
+    content:"";
+    display:block;
+    width:70px;
+    height:2px;
+    margin:12px auto 0;
+    border-radius:999px;
+    background:linear-gradient(
+        to right,
+        transparent,
+        currentColor,
+        transparent
+    );
+    opacity:.45;
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.projectsGrid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+    margin-top:50px;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.projectCard{
+
+    background:#141414;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.08);
+    cursor:pointer;
+    transition:.35s ease;
+}
+
+.projectCard:hover{
+    transform:translateY(-8px);
+    border-color:#f09080;
+    box-shadow:0 20px 40px rgba(0,0,0,.3);
+}
+
+/* ===========================
+   PREVIEW
+=========================== */
+
+.projectPreview{
+    position:relative;
+    width:100%;
+    height:220px;
+    overflow:hidden;
+}
+
+.projectPreview img,
+.projectPreview video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.45s;
+}
+
+.projectCard:hover img,
+.projectCard:hover video{
+    transform:scale(1.08);
+}
+
+/* ===========================
+   OVERLAY
+=========================== */
+
+.projectOverlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(4px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    transition:.35s;
+}
+
+.projectOverlay span{
+    color:white;
+    font-size:1.15rem;
+    font-weight:700;
+    letter-spacing:.05em;
+    transform:translateY(15px);
+    transition:.35s;
+
+}
+
+.projectCard:hover .projectOverlay{
+    opacity:1;
+}
+
+.projectCard:hover .projectOverlay span{
+    transform:translateY(0);
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
+.projectContent{
+    padding:24px;
+}
+
+.projectTitle{
+    color:white;
+    font-size:1.45rem;
+    margin-bottom:12px;
+    font-weight:700;
+}
+
+.projectDescription{
+    color:#bfbfbf;
+    line-height:1.7;
+    margin-bottom:22px;
+    font-size:.95rem;
+}
+
+/* ===========================
+   TECHNOLOGIES
+=========================== */
+
+.projectTech{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.techBadge{
+    background:#232323;
+    color:#f09080;
+    border:1px solid rgba(240,144,128,.35);
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:.8rem;
+    font-weight:600;
+    transition:.3s;
+}
+
+.techBadge:hover{
+    background:#f09080;
+    color:#111;
+}
+
+.moreBadge{
+    background:#f09080;
+    color:#111;
+    border:none;
+    font-weight:700;
+}
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width:900px){
+
+    .projectsGrid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media (max-width:600px){
+    .projectPreview{
+        height:190px;
+    }
+
+    .projectContent{
+        padding:20px;
+    }
+
+    .projectTitle{
+        font-size:1.25rem;
+    }
+
+    .projectDescription{
+        font-size:.9rem;
+    }
+}
+/* ===========================
+   PROJECT CTA
+=========================== */
+
+.projectCTA{
+    margin-top:5vh;
+    padding: 2vh 3vh;
+    text-align:center;
+    border-radius:24px;
+    background:
+        linear-gradient(
+            135deg,
+            #f09080,
+            #f6a394
+        );
+    box-shadow:
+        0 25px 60px rgba(240,144,128,.18);
+}
+
+.projectCTA h2{
+    color:#111;
+    font-size:2rem;
+    font-weight:700;
+}
+
+.projectCTA p{
+    color:#252525;
+    margin:auto;
+    max-width:700px;
+    line-height:1.8;
+    font-size:1.05rem;
+    font-weight:400;
+}
+
+.ctaContactBtn{
+  margin-top: 1vh;
+    border:none;
+    cursor:pointer;
+    padding:15px 35px;
+    border-radius:999px;
+    background:#111;
+    color:white;
+    font-size:1rem;
+    font-weight:700;
+    transition:.3s;
+}
+
+.ctaContactBtn:hover{
+    transform:translateY(-5px);
+    background:#000;
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.3);
 }

@@ -1,12 +1,12 @@
-.hero-content { 
-  position: relative; 
-  width: 100%; 
-  height: 100vh; 
-  margin-top: 80px; 
-  display: flex; 
-  align-items:center;
-  justify-content:flex-start; 
-  overflow: hidden; 
+.hero-content{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    padding-top:140px;
+    padding-bottom:60px;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
 }
 
 .Header {
@@ -16,31 +16,51 @@
   color: white;
 }
 
-.Header h1 {
-  font-weight: 700;
-  font-size: 3rem;
-  line-height: 1.2;
+.badge {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  background:#f090804d;
+  border: 0.1rem solid #f09080;
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
-
-.Header span {
-  color: #f09080;
-}
-
-.role {
+.exposition{
   font-size: 1.3rem;
   font-weight: 500;
   margin-top: 0.5rem;
   color: #f09080;
 }
 
+.Header h1 {
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.Header span {
+  color: #ffffff;
+}
+
+.role {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f09080;
+  margin-bottom: 1rem;;
+}
+
 .tagline {
-  margin-top: 0.5rem;
+  margin: 0;
   font-size: 1.1rem;
   opacity: 0.85;
 }
 
 /* 🔹 CTA Button Styling */
-.cta-btn {
+.cta-btn{
+  display: flex;
+  gap: 14px;
+}
+.collab {
   margin-top: 1.8rem;
   padding: 0.9rem 2rem;
   font-size: 1.1rem;
@@ -56,8 +76,24 @@
   overflow: hidden;
 }
 
+.work{
+  margin-top: 1.8rem;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f09080;
+  background-color: #f0918000;
+  border: 0.1vh solid #f09080;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px #f0908066;
+  overflow: hidden;
+}
+
 /* 🔹 Hover Animation with Light/Glow Effect */
-.cta-btn::before {
+.collab::before , .work::before{
   content: "";
   position: absolute;
   top: 0;
@@ -73,7 +109,11 @@
   transform: skewX(-25deg);
 }
 
-.cta-btn:hover::before {
+.collab:hover::before {
+  animation: lightMove 0.75s forwards;
+}
+
+.work:hover::before {
   animation: lightMove 0.75s forwards;
 }
 
@@ -86,8 +126,15 @@
   }
 }
 
-.cta-btn:hover {
+.collab:hover {
   background-color: #f09080;
+  box-shadow: 0 0 25px #f09080cc;
+  transform: translateY(-3px);
+}
+
+.work:hover {
+  background-color: #f09080;
+  color: black;
   box-shadow: 0 0 25px #f09080cc;
   transform: translateY(-3px);
 }
@@ -115,7 +162,7 @@
   justify-content: space-between;
   align-items: center;
 
-  background: linear-gradient(135deg, #f090804d, rgba(255, 255, 2, 0.1));
+  background: linear-gradient(90deg, #f0918096, rgba(0, 0, 0, 0.603));
   border: 1px solid #f09080;
   backdrop-filter: blur(.7px);
   -webkit-backdrop-filter: blur(15px);
@@ -127,7 +174,9 @@
 
 .nav-link {
   color: white !important;
+  font-weight: 700 !important;
   transition: color 0.3s ease;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
 }
 
 .nav-link:hover {
@@ -138,6 +187,94 @@
   filter: brightness(1.2);
 }
 
+.container-fluid{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+}
+
+.navbarTop{
+    display:flex;
+    align-items:center;
+}
+
+.menuBtn{
+
+    display:none;
+
+}
+.navMenu{
+    display:flex;
+    align-items:center;
+    gap:35px;
+
+    margin:0;
+    padding:0;
+}
+
+.navMenu li{
+    list-style:none;
+}
+
+.navMenu a{
+    position:relative;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+/* Hover */
+
+.navMenu a:hover{
+    color:#f09080;
+}
+
+/* Underline animation */
+
+.navMenu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    background:#f09080;
+
+    transition:.3s;
+
+}
+
+.navMenu a:hover::after{
+
+    width:100%;
+
+}
+
+/* Active page */
+
+.navMenu a.active{
+
+    color:#f09080;
+
+}
+
+.navMenu a.active::after{
+
+    width:100%;
+
+}
 @media(max-width:1080) {
   .lanyard-layer {
   margin: left -100px;
@@ -161,4 +298,360 @@
 
 .toast.show {
   opacity: 1;
+}
+
+/* ===========================
+   HERO STAT CARDS
+=========================== */
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  /* margin-top: 20vh; */
+  width: 100%;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 22px;
+
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(240,144,128,.35);
+  border-radius: 18px;
+
+  backdrop-filter: blur(12px);
+  transition: .3s ease;
+}
+
+/* .stat-card:hover {
+  transform: translateY(-6px);
+  border-color: #f09080;
+  box-shadow: 0 0 30px rgba(240,144,128,.18);
+} */
+
+.stat-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 30px;
+  color: #f09080;
+
+  background: rgba(240,144,128,.08);
+  border-radius: 14px;
+}
+
+.stat-content h3 {
+  margin: 0;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.stat-content p {
+  margin: 2px 0;
+  color: white;
+  font-size: .95rem;
+}
+
+.stat-content span {
+  color: #c5c5c5;
+  font-size: .85rem;
+}
+
+.hero-quote {
+  color: rgba(255,255,255,.75);
+  font-size: 1rem;
+  letter-spacing: .3px;
+  text-align: center;
+}
+
+.hero-quote span {
+  color: #f09080;
+  font-size: 2rem;
+  vertical-align: middle;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 992px) {
+
+  .card-container{
+    position: relative;
+    margin: 40px auto 0;
+    left: auto;
+    bottom: auto;
+    transform: none;
+
+    width: 95%;
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .hero-quote{
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    text-align: center;
+    margin-top: 25px;
+  }
+
+}
+
+@media (max-width: 600px){
+
+  .card-container{
+    grid-template-columns:1fr;
+  }
+
+}
+
+/* ===========================
+   ENTRANCE ANIMATIONS
+=========================== */
+
+.Header{
+    opacity:0;
+    animation:fadeUp .8s ease forwards;
+}
+
+.card-container{
+    opacity:0;
+    animation:fadeUp .8s ease forwards;
+    animation-delay:.4s;
+}
+
+.hero-quote{
+    opacity:0;
+    animation:fadeUp .8s ease forwards;
+    animation-delay:.7s;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.typing-text{
+    display:inline-block;
+    overflow:hidden;
+    white-space:nowrap;
+
+    width:0;
+
+    border-right:2px solid #ffffff;
+
+    animation:
+        typing 3s steps(24,end) infinite,
+        blink .7s step-end infinite;
+}
+
+@keyframes typing{
+
+    0%{
+        width:0;
+    }
+
+    40%{
+        width:25ch;
+    }
+
+    60%{
+        width:25ch;
+    }
+
+    100%{
+        width:0;
+    }
+
+}
+
+@keyframes blink{
+    50%{
+        border-color:transparent;
+    }
+}
+
+@media (max-width:768px){
+
+.custom-navbar{
+
+    width:95%;
+
+    border-radius:24px;
+
+    padding:15px 20px;
+      background: rgba(0, 0, 0, 0.603);
+  border: 1px solid #f09080;
+  backdrop-filter: blur(.7px);
+  -webkit-backdrop-filter: blur(15px);
+
+}
+
+/* Stack logo and menu vertically only on mobile */
+
+.container-fluid{
+
+    flex-direction:column;
+
+    align-items:stretch;
+
+}
+
+.navbarTop{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.menuBtn{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:45px;
+
+    height:45px;
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    font-size:2rem;
+
+    cursor:pointer;
+
+}
+
+.navMenu{
+
+    display:none;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding-top:20px;
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+}
+
+.navMenu.showMenu{
+
+    display:flex;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.hero-content{
+
+    min-height:auto;
+
+    padding-top:120px;
+
+    padding-bottom:60px;
+
+    margin-top:0;
+
+}
+
+.Header{
+
+    text-align:center;
+
+}
+
+.badge{
+
+    margin:auto;
+
+    margin-bottom:18px;
+
+    display:inline-flex;
+
+}
+
+.exposition{
+
+    font-size:1.1rem;
+
+}
+
+.Header h1{
+
+    font-size:2.4rem;
+
+    line-height:1.05;
+
+}
+
+.role{
+
+    font-size:1.6rem;
+
+}
+
+.tagline{
+
+    font-size:.95rem;
+
+    line-height:1.7;
+
+}
+
+.cta-btn{
+
+    margin-top:30px;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.collab,
+.work{
+
+    width:100%;
+
+    max-width:280px;
+
+    margin-top:0;
+
+}
 }
