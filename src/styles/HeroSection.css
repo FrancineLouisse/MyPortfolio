@@ -1,12 +1,12 @@
-.hero-content { 
-  position: relative; 
-  width: 100%; 
-  height: 100vh; 
-  margin-top: 20vh;
-  display: flex; 
-  align-items:center;
-  justify-content:flex-start; 
-  overflow: hidden; 
+.hero-content{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    padding-top:140px;
+    padding-bottom:60px;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
 }
 
 .Header {
@@ -568,4 +568,84 @@
 
 }
 
+}
+
+@media (max-width:768px){
+
+.hero-content{
+
+    min-height:auto;
+
+    padding-top:120px;
+
+    padding-bottom:60px;
+
+    margin-top:0;
+
+}
+
+.Header{
+
+    text-align:center;
+
+}
+
+.badge{
+
+    margin:auto;
+
+    margin-bottom:18px;
+
+    display:inline-flex;
+
+}
+
+.exposition{
+
+    font-size:1.1rem;
+
+}
+
+.Header h1{
+
+    font-size:2.4rem;
+
+    line-height:1.05;
+
+}
+
+.role{
+
+    font-size:1.6rem;
+
+}
+
+.tagline{
+
+    font-size:.95rem;
+
+    line-height:1.7;
+
+}
+
+.cta-btn{
+
+    margin-top:30px;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.collab,
+.work{
+
+    width:100%;
+
+    max-width:280px;
+
+    margin-top:0;
+
+}
 }
