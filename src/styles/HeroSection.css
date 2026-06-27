@@ -162,7 +162,7 @@
   justify-content: space-between;
   align-items: center;
 
-  background: linear-gradient(135deg, #f090804d, rgba(255, 255, 2, 0.1));
+  background: linear-gradient(90deg, #f0918096, rgba(0, 0, 0, 0.603));
   border: 1px solid #f09080;
   backdrop-filter: blur(.7px);
   -webkit-backdrop-filter: blur(15px);
@@ -174,7 +174,9 @@
 
 .nav-link {
   color: white !important;
+  font-weight: 700 !important;
   transition: color 0.3s ease;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
 }
 
 .nav-link:hover {
@@ -495,6 +497,10 @@
     border-radius:24px;
 
     padding:15px 20px;
+      background: rgba(0, 0, 0, 0.603);
+  border: 1px solid #f09080;
+  backdrop-filter: blur(.7px);
+  -webkit-backdrop-filter: blur(15px);
 
 }
 
