@@ -1,6 +1,6 @@
 # 💻 Web Portfolio
 
-> My personal web portfolio showcasing my background, skills, projects, certifications, and achievements as an Information Technology graduate.
+> My personal web portfolio showcasing my background, skills, projects, certifications, and achievements as Software Developer.
 
 <p align="center">
   <a href="https://francine-louisse-miranda.netlify.app/">
