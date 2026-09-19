@@ -10,13 +10,6 @@
 
 ---
 
-## 🌐 Live Portfolio
-
-**Visit my portfolio:**
-https://francine-louisse-miranda.netlify.app/
-
----
-
 ## 🛠️ Tech Stack
 
 | Technology     | Purpose                             |
